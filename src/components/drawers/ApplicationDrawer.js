@@ -17,7 +17,6 @@ import {InputAdornment} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import logoIcon from "@assets/logo-icon.svg";
 import Box from '@material-ui/core/Box'
-import palette from "../../lib/theme/palette";
 
 function search() {
   return;
