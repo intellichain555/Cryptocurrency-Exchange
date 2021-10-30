@@ -1,7 +1,8 @@
-import React from "react";
-import { CssBaseline } from "@material-ui/core";
+import React, { Component } from "react";
+import {CssBaseline, useTheme} from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles'
-import theme from '@theme'
+import { withStyles } from "@material-ui/core";
+import appTheme from '@theme'
 import ApplicationHeader from '@components/application-header/ApplicationHeader.js'
 import Home from '@views/Home'
 import {
@@ -11,23 +12,36 @@ import {
 } from "react-router-dom";
 import './App.css';
 
-function App() {
+const styles = theme => ({
+  app: {
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: 256
+    }
+  }
+})
 
-  return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div className="App">
-          <ApplicationHeader />
-          <Switch>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </ThemeProvider>
-    </Router>
-  );
+
+class App extends Component {
+  render() {
+    const { classes, theme } = this.props
+
+    return (
+      <Router>
+        <ThemeProvider theme={appTheme}>
+          <CssBaseline />
+          <div className={ classes.app }>
+            <ApplicationHeader />
+            <Switch>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+        </ThemeProvider>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default withStyles(styles, { withTheme: true })(App);

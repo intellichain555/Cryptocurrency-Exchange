@@ -5,8 +5,8 @@ const palette = {
   },
   primary: {
     light: '#E4E4E4',
-    main: '#3f51b5',
-    dark: '#1F2128',
+    main: '#355DFF',
+    dark: '#355DFF',
     darkCard: '#242731',
     contrastText: '#FFF',
   },

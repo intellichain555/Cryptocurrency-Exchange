@@ -46,43 +46,43 @@ const themeTypography = {
   subtitle1: {
     fontFamily: "Poppins, sans-serif",
     fontWeight: 600,
-    fontSize: (72 / baseFontSize) + "rem",
+    fontSize: (16 / baseFontSize) + "rem",
     lineHeight: (112 / 96),
     letterSpacing: "-1px"
   },
   subtitle2: {
     fontFamily: "Poppins, sans-serif",
-    fontWeight: 600,
-    fontSize: (72 / baseFontSize) + "rem",
+    fontWeight: 500,
+    fontSize: (14 / baseFontSize) + "rem",
     lineHeight: (112 / 96),
     letterSpacing: "-1px"
   },
   body1: {
     fontFamily: "Poppins, sans-serif",
-    fontWeight: 600,
-    fontSize: (72 / baseFontSize) + "rem",
+    fontWeight: 500,
+    fontSize: (14 / baseFontSize) + "rem",
     lineHeight: (112 / 96),
     letterSpacing: "-1px"
   },
   body2: {
     fontFamily: "Poppins, sans-serif",
-    fontWeight: 600,
-    fontSize: (72 / baseFontSize) + "rem",
+    fontWeight: 500,
+    fontSize: (13 / baseFontSize) + "rem",
     lineHeight: (112 / 96),
     letterSpacing: "-1px"
   },
   button: {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontWeight: 600,
-    fontSize: (72 / baseFontSize) + "rem",
+    fontSize: (14 / baseFontSize) + "rem",
     lineHeight: (112 / 96),
     letterSpacing: "-1px",
     textTransform: "none"
   },
   caption: {
     fontFamily: "Poppins, sans-serif",
-    fontWeight: 600,
-    fontSize: (72 / baseFontSize) + "rem",
+    fontWeight: 500,
+    fontSize: (12 / baseFontSize) + "rem",
     lineHeight: (112 / 96),
     letterSpacing: "-1px"
   },
@@ -93,6 +93,11 @@ const themeTypography = {
     lineHeight: (112 / 96),
     letterSpacing: "-1px"
   },
+  chip: {
+    label: {
+      fontFamily: "Inter, sans-serif",
+    }
+  }
 }
 
 export default themeTypography

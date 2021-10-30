@@ -20,6 +20,11 @@ theme.overrides = {
       }
     }
   },
+  MuiChip: {
+    label: {
+      ...theme.typography.chip.label
+    }
+  }
 }
 
 export default theme
