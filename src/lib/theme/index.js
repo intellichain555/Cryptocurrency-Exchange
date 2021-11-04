@@ -9,6 +9,12 @@ let theme = createTheme({
 })
 
 theme.overrides = {
+  MuiSelect: {
+    root: {
+      background: theme.palette.primary.darkCard,
+      borderRadius: theme.shape.borderRadius,
+    }
+  },
   MuiInput: {
     root: {
       background: theme.palette.action.selected,

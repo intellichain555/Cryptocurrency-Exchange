@@ -1,9 +1,8 @@
 import { Box } from "@material-ui/core";
-import { useTheme, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { Doughnut } from "react-chartjs-2";
 import {connect} from "react-redux";
-
 
 function AccountBalanceChart(props) {
   const useStyles = makeStyles({

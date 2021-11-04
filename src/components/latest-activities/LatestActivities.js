@@ -36,7 +36,7 @@ export default function LatestActivities() {
               <Typography
                 component="span"
                 variant="body2"
-                color="textSuccess"
+                color="textSecondary"
               >
                 Nov 22, 2020
               </Typography>

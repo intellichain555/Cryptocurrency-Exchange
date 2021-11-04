@@ -1,5 +1,5 @@
 import { withStyles } from "@material-ui/core/styles";
-import { Grid, Container, Box } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import AccountBalanceError from "./AccountBalanceError";
 import AccountBalanceChart from "./AccountBalanceChart";
 import AccountBalanceHeader from "./AccountBalanceHeader";
@@ -16,6 +16,7 @@ const styles = theme => ({
     background: theme.palette.primary.darkCard,
     width: '100%',
     textAlign: 'center',
+    minHeight: '529px',
     [theme.breakpoints.up('md')]: {
       textAlign: 'left'
     }
@@ -27,40 +28,13 @@ class AccountBalance extends Component {
     super(props);
 
     this.state = {
-      error: false,
-      loading: true
+      error: props.error,
+      loading: props.isLoading
     }
-
-    this.loadAccountBalance = this.loadAccountBalance.bind(this)
-    this.requestAccountBalance = this.requestAccountBalance.bind(this)
   }
 
   componentDidMount() {
-    this.loadAccountBalance()
-  }
-
-  loadAccountBalance() {
-    this.setState({
-      ...this.state,
-      error: false,
-      loading: true
-    }, this.requestAccountBalance)
-  }
-
-  requestAccountBalance() {
     this.props.loadDailyAccountSnapshotSPOT()
-      .catch(() => {
-        this.setState({
-          ...this.state,
-          error: true,
-        })
-      })
-      .finally(() => {
-        this.setState({
-          ...this.state,
-          loading: false
-        })
-      })
   }
 
   render() {
@@ -69,12 +43,12 @@ class AccountBalance extends Component {
         <Box
           p={6}
           borderRadius={24}
-          classes={{ root: styles.wrapper }}
+          classes={{ root: this.props.classes.wrapper }}
           boxShadow={4}
         >
           {
             this.state.error ? (
-              <AccountBalanceError retry={() => this.loadAccountBalance()} />
+              <AccountBalanceError retry={() => this.props.loadDailyAccountSnapshotSPOT()} />
             ) : (
               <Zoom in={true} timeout={1000}>
                 <Grid
@@ -107,17 +81,10 @@ class AccountBalance extends Component {
   }
 }
 
-/**
- * Classes cost:
- *
- * Equipment cost
- * @param state
- * @returns {{isLoading: boolean}}
- */
-
 function mapStateToProps(state) {
   return {
-    isLoading: state.binance.fetching.account_wallet_balances
+    isLoading: state.binance.requestingAccountWalletBalances,
+    error: state.binance.errorRequestingAccountWalletBalances,
   }
 }
 

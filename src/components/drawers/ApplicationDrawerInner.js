@@ -8,7 +8,7 @@ import { FormControl, Hidden, Input, InputAdornment } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
-import {makeStyles, useTheme} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import ApplicationDrawerNavigation from "./ApplicationDrawerNavigation"
 
 function search() {
@@ -16,7 +16,6 @@ function search() {
 }
 
 export default function ApplicationDrawerInner() {
-  const theme = useTheme()
   const useStyles = makeStyles({
     container: {
       height: '100%',

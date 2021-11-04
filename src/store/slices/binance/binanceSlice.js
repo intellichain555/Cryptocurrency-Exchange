@@ -18,9 +18,9 @@ export const binanceSlice = createSlice({
         accountSnapshot: 'sapi/v1/accountSnapshot'
       }
     },
-    fetching: {
-      account_wallet_balances: false
-    },
+    // Wallet Balances
+    errorRequesingAccountWalletBalances: false,
+    requestingAccountWalletBalances: false,
     account: {
       wallet: {
         balances: {
@@ -102,8 +102,11 @@ export const binanceSlice = createSlice({
     }
   },
   reducers: {
-    setFetchingAccountWalletBalances: (state, action) => {
-      state.fetching.account_wallet_balances = action.payload
+    setErrorRequestingAccountWalletBalances: (state, action) => {
+      state.errorRequestingAccountWalletBalances = action.payload
+    },
+    setRequestingAccountWalletBalances: (state, action) => {
+      state.requestingAccountWalletBalances = action.payload
     },
     setWalletSpotBalance: (state, action) => {
       state.wallet.balances.spot = action.payload
@@ -111,35 +114,36 @@ export const binanceSlice = createSlice({
   }
 })
 
-
-export const { setFetchingAccountWalletBalances, setWalletSpotBalance } = binanceSlice.actions
+const {
+  setRequestingAccountWalletBalances,
+  setErrorRequestingAccountWalletBalances,
+  setWalletSpotBalance,
+} = binanceSlice.actions
 
 export const loadDailyAccountSnapshotSPOT = (_) => (dispatch, getState) => {
   return new Promise(async (resolve, reject) => {
     try {
-      // client.balance((error, balances) => {
-      //   if (error) {
-      //     console.error(error)
-      //     reject()
-      //   }
-      //
-      //   console.info("balances()", balances)
-      //   // dispatch(setWalletSpotBalance(snapshot.data))
-      //   resolve()
-      // })
+      await dispatch(setRequestingAccountWalletBalances(true))
 
+      client.balance((error, balances) => {
+        if (error) {
+          console.error(error)
+          reject()
+        }
+
+        dispatch(setWalletSpotBalance(balances.data))
+        resolve()
+      })
+      resolve()
     } catch (e) {
-      console.error(e.message)
-      setTimeout(function() {
-        reject()
-      }, 3000)
+      dispatch(setErrorRequestingAccountWalletBalances(false))
+    } finally {
+      dispatch(setRequestingAccountWalletBalances(false))
     }
   })
 }
 
 export const checkSystemStatus = (_) => (dispatch, getState) => {
-  debugger
-
   binance.checkSystemStatus()
     .then((result) => {
       debugger

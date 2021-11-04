@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {CssBaseline, useTheme} from "@material-ui/core";
+import {CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from '@material-ui/core/styles'
 import { withStyles } from "@material-ui/core";
 import appTheme from '@theme'
@@ -24,7 +24,7 @@ const styles = theme => ({
 
 class App extends Component {
   render() {
-    const { classes, theme } = this.props
+    const { classes } = this.props
 
     return (
       <Router>

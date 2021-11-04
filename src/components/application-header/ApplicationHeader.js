@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone'
 import logoIcon from '@assets/logo-icon.svg';
-import logoFull from '@assets/logo-full.svg';
 import Box from '@material-ui/core/Box'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -82,9 +81,7 @@ export default function ApplicationHeader() {
               </Box>
             </Grid>
             <Grid item>
-              <IconButton
-                aria-label="View Notifications"
-              >
+              <IconButton aria-label="View Notifications">
                 <NotificationsNoneIcon />
               </IconButton>
               <Hidden mdUp>
