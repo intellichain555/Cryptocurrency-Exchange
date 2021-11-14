@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core/styles";
+import { createTheme } from "@mui/material/styles";
 import palette from './palette'
 import typography from "./typography";
 
@@ -8,27 +8,36 @@ let theme = createTheme({
   typography,
 })
 
-theme.overrides = {
+theme.components = {
   MuiSelect: {
-    root: {
-      background: theme.palette.primary.darkCard,
-      borderRadius: theme.shape.borderRadius,
+    styleOverrides: {
+      root: {
+        padding: theme.spacing(2)
+      },
+      icon: {
+        right: '10px',
+      }
     }
   },
   MuiInput: {
-    root: {
-      background: theme.palette.action.selected,
-      padding: theme.spacing(1),
-      borderRadius: theme.shape.borderRadius,
-      border: 'none',
-      '&:before': {
-        display: 'none'
+    styleOverrides: {
+      root: {
+        background: theme.palette.primary.darkCard,
+        padding: 0,
+        // padding: theme.spacing(1),
+        borderRadius: '12px',
+        border: 'none',
+        '&:before': {
+          display: 'none'
+        }
       }
     }
   },
   MuiChip: {
-    label: {
-      ...theme.typography.chip.label
+    styleOverrides: {
+      label: {
+        ...theme.typography.chip.label
+      }
     }
   }
 }

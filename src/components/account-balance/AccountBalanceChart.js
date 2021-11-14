@@ -1,17 +1,8 @@
-import { Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import Skeleton from "@material-ui/lab/Skeleton";
+import { Box, Skeleton } from "@mui/material";
 import { Doughnut } from "react-chartjs-2";
 import {connect} from "react-redux";
 
 function AccountBalanceChart(props) {
-  const useStyles = makeStyles({
-    chartSkeleton: {
-      margin: "0 auto"
-    }
-  });
-
-  const styles = useStyles()
   const data = {
     datasets: [
       {
@@ -30,9 +21,9 @@ function AccountBalanceChart(props) {
         <Skeleton
           animation="wave"
           variant="circle"
-          classes={{ root: styles.chartSkeleton }}
           height="100%"
           width="100%"
+          sx={{ mx: "auto" }}
         />
       ) : (
         <Doughnut

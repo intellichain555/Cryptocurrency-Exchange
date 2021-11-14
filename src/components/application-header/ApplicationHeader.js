@@ -1,15 +1,26 @@
 import React from "react";
-import Grid from '@material-ui/core/Grid'
-import IconButton from '@material-ui/core/IconButton'
-import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone'
+//////////////////// MUI
+import {
+  Grid,
+  IconButton,
+  Box,
+  AppBar,
+  Toolbar,
+  Hidden,
+  FormControl,
+  Input,
+  InputAdornment
+} from '@mui/material'
+
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
+import SearchIcon from "@mui/icons-material/Search";
+
+import { styled } from '@mui/styles'
+
+// Application Components
 import logoIcon from '@assets/logo-icon.svg';
-import Box from '@material-ui/core/Box'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
 import SlideLeftIcon from '@icons/SlideLeft'
 import ApplicationDrawer from '@components/drawers/ApplicationDrawer'
-import {makeStyles, Hidden, FormControl, Input, InputAdornment} from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
 
 export default function ApplicationHeader() {
   const [state, setState] = React.useState({
@@ -24,24 +35,13 @@ export default function ApplicationHeader() {
     setState({ ...state, active });
   };
 
-  const drawerWidth = 256
-
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-      marginBottom: theme.spacing(3)
-    },
-    appBar: {
-      zIndex: theme.zIndex.drawer + 1,
-      width: `calc(100% - ${drawerWidth}px`,
-      marginLeft: drawerWidth
-    }
+  const Root = styled('div')(({ theme }) => ({
+    display: 'flex',
+    marginBottom: theme.spacing(3)
   }))
 
-  const classes = useStyles()
-
   return (
-    <div className={classes.root}>
+    <Root>
       <AppBar
         position="sticky"
         className="application-header"
@@ -97,6 +97,6 @@ export default function ApplicationHeader() {
       </AppBar>
 
       <ApplicationDrawer active={ state.active } toggleDrawer={toggleDrawer} />
-    </div>
+    </Root>
   )
 }

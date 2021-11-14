@@ -1,14 +1,21 @@
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
+import React from "react";
+
+import {
+  FormControl,
+  Hidden,
+  Input,
+  InputAdornment,
+  Box,
+  Grid,
+  IconButton
+} from "@mui/material";
+
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import CloseIcon from "@mui/icons-material/Close";
+import SearchIcon from "@mui/icons-material/Search";
+
 import logoIcon from "@assets/logo-icon.svg";
 import logoFull from "@assets/logo-full.svg";
-import IconButton from "@material-ui/core/IconButton";
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
-import { FormControl, Hidden, Input, InputAdornment } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import SearchIcon from "@material-ui/icons/Search";
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import ApplicationDrawerNavigation from "./ApplicationDrawerNavigation"
 
 function search() {
@@ -16,14 +23,6 @@ function search() {
 }
 
 export default function ApplicationDrawerInner() {
-  const useStyles = makeStyles({
-    container: {
-      height: '100%',
-    }
-  });
-
-  const classes = useStyles();
-
   return (
     (
       <Box
@@ -38,7 +37,7 @@ export default function ApplicationDrawerInner() {
           justifyContent="space-between"
           wrap="nowrap"
           height="100%"
-          classes={{ root: classes.container }}
+          sx={{ height: '100%' }}
         >
           <Grid
             item

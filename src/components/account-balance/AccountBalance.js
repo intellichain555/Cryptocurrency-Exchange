@@ -1,17 +1,18 @@
-import { withStyles } from "@material-ui/core/styles";
-import { Grid, Box } from "@material-ui/core";
+import { styled } from '@mui/styles'
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
+import Zoom from "@mui/material/Zoom"
 import AccountBalanceError from "./AccountBalanceError";
 import AccountBalanceChart from "./AccountBalanceChart";
 import AccountBalanceHeader from "./AccountBalanceHeader";
 import AccountBalanceTotalBTC from "./AccountBalanceTotalBTC";
 import AccountBalanceTotalUSD from "./AccountBalanceTotalUSD";
 import AccountBalanceActions from "./AccountBalanceActions";
-import Zoom from "@material-ui/core/Zoom"
 import { loadDailyAccountSnapshotSPOT } from "../../store/slices/binance/binanceSlice";
 import { Component } from "react";
 import { connect } from "react-redux";
 
-const styles = theme => ({
+const StyledBox = styled(Box)(({ theme }) => ({
   wrapper: {
     background: theme.palette.primary.darkCard,
     width: '100%',
@@ -21,7 +22,7 @@ const styles = theme => ({
       textAlign: 'left'
     }
   }
-});
+}))
 
 class AccountBalance extends Component {
   constructor(props) {
@@ -40,10 +41,9 @@ class AccountBalance extends Component {
   render() {
     return (
       <Zoom in={true} timeout={2000}>
-        <Box
+        <StyledBox
           p={6}
           borderRadius={24}
-          classes={{ root: this.props.classes.wrapper }}
           boxShadow={4}
         >
           {
@@ -75,7 +75,7 @@ class AccountBalance extends Component {
               </Zoom>
             )
           }
-        </Box>
+        </StyledBox>
       </Zoom>
     )
   }
@@ -94,4 +94,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, { withTheme: true })(AccountBalance))
+export default connect(mapStateToProps, mapDispatchToProps)((AccountBalance))

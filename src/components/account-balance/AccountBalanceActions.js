@@ -1,5 +1,5 @@
-import Skeleton from "@material-ui/lab/Skeleton";
-import {Button} from "@material-ui/core";
+import Skeleton from "@mui/material/Skeleton";
+import Button from "@mui/material/Button";
 
 export default function AccountBalanceActions(props) {
   return  props.isLoading ? (

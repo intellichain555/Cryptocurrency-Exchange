@@ -1,16 +1,16 @@
 import { useState } from "react";
-import {Box, MenuItem, Select} from "@material-ui/core";
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import clsx from 'clsx'
-
+import {
+  Box,
+  MenuItem,
+  Select
+} from "@mui/material"
+import { styled } from "@mui/styles"
 
 export default function AssetsCatalogueFilters() {
   const [sort, setSort] = useState('')
   const handleChange = (event) => setSort(event.target.value)
 
-  const theme = useTheme()
-
-  const useStyles = makeStyles({
+  const StyledSelect = styled(Select)(({ theme} ) => ({
     dropdown: {
       // background: theme.palette.primary.darkCard,
       borderRadius: theme.shape.borderRadius,
@@ -18,9 +18,7 @@ export default function AssetsCatalogueFilters() {
         marginRight: theme.spacing(2),
       }
     }
-  })
-
-  const classes = useStyles()
+  }))
 
   return (
     <Box
@@ -29,49 +27,47 @@ export default function AssetsCatalogueFilters() {
       justifyContent="stretch"
       alignItems="center"
     >
-      <Select
+      <StyledSelect
         value={sort}
         onChange={handleChange}
         displayEmpty
-        className={ clsx(classes.dropdown) }
         style={{ flexGrow: '1' }}
       >
         <MenuItem value="">
           <em>Core Assets</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="top-gainers">
           <em>Top Gainers</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="top-losers">
           <em>Top Losers</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="new">
           <em>New</em>
         </MenuItem>
-      </Select>
-      <Select
+      </StyledSelect>
+      <StyledSelect
         value={sort}
         onChange={handleChange}
         displayEmpty
-        className={ clsx(classes.dropdown) }
         style={{ flexGrow: '1' }}
       >
         <MenuItem value="">
           <em>Sort Assets</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="a-z">
           <em>A - Z</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="trading-volume">
           <em>Volumes</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="last-24h">
           <em>Last 24h</em>
         </MenuItem>
-        <MenuItem>
+        <MenuItem value="price">
           <em>Price</em>
         </MenuItem>
-      </Select>
+      </StyledSelect>
     </Box>
   )
 }

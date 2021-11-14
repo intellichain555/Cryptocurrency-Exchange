@@ -1,28 +1,27 @@
-import {Box, Chip, makeStyles, Typography} from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
-import {useTheme} from "@material-ui/core/styles";
-import {connect} from "react-redux";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import Skeleton from "@mui/material/Skeleton";
+import { connect } from "react-redux";
+import { styled } from '@mui/material/styles'
 
 function AccountBalanceTotalBTC(props) {
-  const theme = useTheme()
-  const useStyles = makeStyles({
-    wrapper: {
-      background: theme.palette.primary.darkCard,
-      width: '100%',
-      textAlign: 'center',
-      [theme.breakpoints.up('md')]: {
-        textAlign: 'left'
-      }
-    },
-    chipRoot: {
-      backgroundColor: theme.palette.warning.main,
-    },
-    chipLabel: {
-      fontSize: theme.typography.h6.fontSize,
-    },
-  });
+  // const theme = useTheme()
+  // const useStyles = makeStyles({
+  //   wrapper: {
+  //     background: theme.palette.primary.darkCard,
+  //     width: '100%',
+  //     textAlign: 'center',
+  //     [theme.breakpoints.up('md')]: {
+  //       textAlign: 'left'
+  //     }
+  //   },
+  // });
 
-  const styles = useStyles()
+  const StyledChip = styled(Chip)(({ theme }) => ({
+    backgroundColor: theme.palette.warning.main,
+    fontSize: theme.typography.h6.fontSize,
+  }))
 
   return (
     <Box
@@ -42,7 +41,7 @@ function AccountBalanceTotalBTC(props) {
         { props.isLoading ? (
           <Skeleton animation="wave" variant="text" width={50} height={40} />
         ) : (
-          <Chip label="BTC" classes={{ root: styles.chipRoot, label: styles.chipLabel }} small="true" />
+          <StyledChip label="BTC" small="true" />
         )}
       </Box>
     </Box>

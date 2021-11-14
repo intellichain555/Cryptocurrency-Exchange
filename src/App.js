@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import {CssBaseline } from "@material-ui/core";
-import { ThemeProvider } from '@material-ui/core/styles'
-import { withStyles } from "@material-ui/core";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from '@mui/material/styles'
+import { makeStyles, withStyles } from "@mui/styles";
 import appTheme from '@theme'
 import ApplicationHeader from '@components/application-header/ApplicationHeader.js'
 import Home from '@views/Home'
@@ -12,15 +12,14 @@ import {
 } from "react-router-dom";
 import './App.css';
 
-const styles = theme => ({
+const styles = makeStyles(theme => ({
   app: {
     width: '100%',
-    [theme.breakpoints.up('md')]: {
+    [appTheme.breakpoints.up('md')]: {
       paddingLeft: 256
     }
   }
-})
-
+}))
 
 class App extends Component {
   render() {

@@ -1,5 +1,5 @@
-import {Box} from "@material-ui/core";
-import Skeleton from "@material-ui/lab/Skeleton";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
 export default function AccountBalanceTotalUSD(props) {
   return (

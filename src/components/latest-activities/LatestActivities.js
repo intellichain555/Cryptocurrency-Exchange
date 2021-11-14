@@ -1,9 +1,15 @@
 import {
-  Avatar, List, ListItem, ListItemAvatar,
-  Typography, ListItemText, Box, Divider
-} from "@material-ui/core";
+  Avatar,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Typography,
+  Box,
+  Divider
+} from "@mui/material"
 
-import ImageIcon from "@material-ui/icons/Image"
+import ImageIcon from "@mui/icons-material/Image"
 
 export default function LatestActivities() {
   return (

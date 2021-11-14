@@ -2,7 +2,8 @@ import React from 'react'
 import AssetsCatalogue from "../components/asset-catalogue/AssetsCatalogue";
 import CurrentBalance from '@components/account-balance/AccountBalance'
 import LatestActivities from "../components/latest-activities/LatestActivities";
-import { Grid, Box } from "@material-ui/core";
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
 // import { checkSystemStatus } from "../store/slices/binance/binanceSlice";
 // import Binance from '@lib/api/binance'
 

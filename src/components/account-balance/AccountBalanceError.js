@@ -1,7 +1,10 @@
-import {Box, Button, Grid, Typography} from "@material-ui/core";
-import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline"
-import Fade from "@material-ui/core/Fade"
-import { useTheme } from "@material-ui/core/styles";
+import Box  from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline"
+import Fade from "@mui/material/Fade"
+import { useTheme } from "@mui/material/styles";
 
 export default function AccountBalanceError(props) {
   const theme = useTheme()

@@ -1,5 +1,4 @@
-import Skeleton from "@material-ui/lab/Skeleton";
-import {Typography} from "@material-ui/core";
+import { Skeleton, Typography } from "@mui/material"
 
 export default function AccountBalanceHeader(props) {
   return props.isLoading ? (
